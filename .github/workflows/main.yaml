@@ -1,4 +1,4 @@
-name: io_photobooth
+name: coffee_app
 
 on: [pull_request, push]
 
@@ -8,6 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: '3.3.1'
