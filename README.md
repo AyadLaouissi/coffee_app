@@ -1,8 +1,10 @@
 # coffee app
 
-<img height="200" src="https://raw.githubusercontent.com/AyadLaouissi/coffee_app/main/screenshots/home.png" width="150"/>
-<img height="200" src="https://raw.githubusercontent.com/AyadLaouissi/coffee_app/main/screenshots/home_loaded.png" width="150"/>
-<img height="200" src="https://raw.githubusercontent.com/AyadLaouissi/coffee_app/main/screenshots/favourite.png" width="150"/>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/AyadLaouissi/coffee_app/main/screenshots/home.png" width="200"/>
+    <img src="https://raw.githubusercontent.com/AyadLaouissi/coffee_app/main/screenshots/home_loaded.png" width="200"/>
+    <img src="https://raw.githubusercontent.com/AyadLaouissi/coffee_app/main/screenshots/favourite.png" width="200"/>
+</p>
 
 In the coffee app you are able to get random coffee images and save to your favourites.
 You are able to check your favourite images offline
