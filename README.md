@@ -1,30 +1,37 @@
-# coffee
+# coffee app
 
-A new Flutter project.
+<img height="150" src="/Users/laaouissi/StudioProjects/coffee/screenshots/home.png" width="150"/>
+<img height="150" src="/Users/laaouissi/StudioProjects/coffee/screenshots/home_loaded.png" width="150"/>
+<img height="150" src="/Users/laaouissi/StudioProjects/coffee/screenshots/favourite.png" width="150"/>
 
-## Getting Started
+In the coffee app you are able to get random coffee images and save to your favourites.
+You are able to check your favourite images offline
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
+## Getting Started 🚀
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run the desired project either use the launch configuration in VSCode/Android Studio or use the following commands:
 
-## Assets
+```sh
+$ flutter run
+```
 
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+Coffee app works on Android and iOS.
 
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
+---
 
-## Localization
+## Running Tests 🧪
 
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
+To run all unit and widget tests use the following command:
 
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+```sh
+$ flutter test --coverage --test-randomize-ordering-seed random
+```
+
+To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+
+```sh
+# Generate Coverage Report
+$ genhtml coverage/lcov.info -o coverage/
+# Open Coverage Report
+$ open coverage/index.html
+```
