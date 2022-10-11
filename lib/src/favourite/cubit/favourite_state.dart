@@ -3,10 +3,13 @@ part of 'favourite_cubit.dart';
 class FavouriteState extends Equatable {
   FavouriteState({List<Coffee>? coffees}) : coffees = coffees ?? [];
 
-  factory FavouriteState.fromJson(Map<String, dynamic> json) {
+  factory FavouriteState.fromJson(
+    Map<String, dynamic> json, {
+    required String path,
+  }) {
     return FavouriteState(
       coffees: (json['coffees'] as List)
-          .map((e) => Coffee.fromJson(e as Map<String, dynamic>))
+          .map((e) => Coffee.fromJson(e as Map<String, dynamic>, path: path))
           .toList(),
     );
   }

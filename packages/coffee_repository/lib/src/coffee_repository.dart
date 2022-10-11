@@ -15,7 +15,7 @@ class CoffeeRepository {
   final ImageApi _imageApi;
 
   /// returns a coffee model with the url and image
-  Future<Coffee> getRandomCoffeeImage() async {
+  Future<Coffee> getRandomCoffee() async {
     final url = await _coffeeApiClient.getRandomCoffee();
     final image = await _imageApi.getTempImage(url);
 

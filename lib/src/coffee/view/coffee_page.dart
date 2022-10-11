@@ -37,21 +37,23 @@ class CoffeeView extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: BlocBuilder<CoffeeCubit, CoffeeState>(
-            builder: (context, state) {
-              if (state is CoffeeInitialState) {
-                return const CoffeeInitial();
-              } else if (state is CoffeeLoadingState) {
-                return const CoffeeLoading();
-              } else if (state is CoffeeSuccessState) {
-                return CoffeeImage(coffee: state.coffee);
-              }
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: BlocBuilder<CoffeeCubit, CoffeeState>(
+              builder: (context, state) {
+                if (state is CoffeeInitialState) {
+                  return const CoffeeInitial();
+                } else if (state is CoffeeLoadingState) {
+                  return const CoffeeLoading();
+                } else if (state is CoffeeSuccessState) {
+                  return CoffeeImage(coffee: state.coffee);
+                }
 
-              return const CoffeeError();
-            },
+                return const CoffeeError();
+              },
+            ),
           ),
         ),
       ),

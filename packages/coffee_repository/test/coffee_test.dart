@@ -8,6 +8,7 @@ void main() {
   group('Coffee', () {
     const url = 'https://coffee.alexflipnote.dev/vkaytB28iAU_coffee.jpg';
     const filePath = '/data/vkaytB28iAU_coffee.jpg';
+    const imageName = 'vkaytB28iAU_coffee.jpg';
     late MockFile image;
     late Coffee coffee;
 
@@ -23,12 +24,14 @@ void main() {
           Coffee.fromJson(
             const <String, dynamic>{
               'url': url,
-              'image_path': filePath,
+              'image_name': imageName,
             },
+            path: '/data',
           ),
           isA<Coffee>()
               .having((c) => c.url, 'url', url)
-              .having((c) => c.image.path, 'url', filePath),
+              .having((c) => c.imageName, 'image name', imageName)
+              .having((c) => c.image.path, 'file path', filePath),
         );
       });
     });
@@ -39,7 +42,7 @@ void main() {
           coffee.toJson(),
           const <String, dynamic>{
             'url': url,
-            'image_path': filePath,
+            'image_name': imageName,
           },
         );
       });

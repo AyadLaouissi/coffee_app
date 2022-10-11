@@ -16,7 +16,7 @@ class CoffeeError extends StatelessWidget {
           style: theme.textTheme.headline5,
         ),
         ElevatedButton(
-          onPressed: context.read<CoffeeCubit>().getRandomImage,
+          onPressed: context.read<CoffeeCubit>().getRandomCoffee,
           child: const Text('Retry'),
         ),
       ],

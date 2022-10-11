@@ -38,12 +38,12 @@ void main() {
       });
     });
 
-    group('getRandomCoffeeImage', () {
+    group('getRandomCoffee', () {
       test('returns correct url on success', () async {
         when(coffeeApiClient.getRandomCoffee).thenAnswer((_) async => url);
         when(() => imageApi.getTempImage(url)).thenAnswer((_) async => image);
 
-        final response = await coffeeRepository.getRandomCoffeeImage();
+        final response = await coffeeRepository.getRandomCoffee();
         expect(response, coffee);
 
         verify(coffeeApiClient.getRandomCoffee).called(1);
@@ -55,7 +55,7 @@ void main() {
         when(coffeeApiClient.getRandomCoffee).thenThrow(exception);
 
         expect(
-          coffeeRepository.getRandomCoffeeImage,
+          coffeeRepository.getRandomCoffee,
           throwsA(exception),
         );
       });
@@ -66,7 +66,7 @@ void main() {
         when(() => imageApi.getTempImage(any())).thenThrow(exception);
 
         expect(
-          coffeeRepository.getRandomCoffeeImage,
+          coffeeRepository.getRandomCoffee,
           throwsA(exception),
         );
       });

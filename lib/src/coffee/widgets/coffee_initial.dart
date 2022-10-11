@@ -12,13 +12,13 @@ class CoffeeInitial extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Welcome to the coffee app!️',
+          'Welcome to the coffee app!',
           style: theme.textTheme.headline3,
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 8),
         ElevatedButton(
-          onPressed: context.read<CoffeeCubit>().getRandomImage,
+          onPressed: context.read<CoffeeCubit>().getRandomCoffee,
           child: const Text('Start'),
         ),
       ],

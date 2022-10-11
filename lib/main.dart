@@ -6,15 +6,17 @@ import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final documentsDirectory = await getApplicationDocumentsDirectory();
 
   final storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationDocumentsDirectory(),
+    storageDirectory: documentsDirectory,
   );
 
   HydratedBlocOverrides.runZoned(
     () => runApp(
       MyApp(
         coffeeRepository: CoffeeRepository(),
+        directory: documentsDirectory,
       ),
     ),
     storage: storage,

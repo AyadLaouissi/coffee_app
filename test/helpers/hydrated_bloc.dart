@@ -6,11 +6,11 @@ class MockStorage extends Mock implements Storage {}
 
 late Storage hydratedStorage;
 
-void initHydratedStorage() {
+void initHydratedStorage(void Function() create) {
   TestWidgetsFlutterBinding.ensureInitialized();
   hydratedStorage = MockStorage();
   when(
     () => hydratedStorage.write(any(), any<dynamic>()),
   ).thenAnswer((_) async {});
-  HydratedBlocOverrides.storage = hydratedStorage;
+  HydratedBlocOverrides.runZoned(create, storage: hydratedStorage);
 }

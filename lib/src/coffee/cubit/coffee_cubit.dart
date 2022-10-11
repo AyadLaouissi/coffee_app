@@ -9,11 +9,11 @@ class CoffeeCubit extends Cubit<CoffeeState> {
 
   final CoffeeRepository _coffeeRepository;
 
-  Future<void> getRandomImage() async {
+  Future<void> getRandomCoffee() async {
     emit(CoffeeLoadingState());
 
     try {
-      final coffee = await _coffeeRepository.getRandomCoffeeImage();
+      final coffee = await _coffeeRepository.getRandomCoffee();
       emit(
         CoffeeSuccessState(
           coffee: coffee,

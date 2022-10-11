@@ -26,7 +26,7 @@ class CoffeeImage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
-                onPressed: context.read<CoffeeCubit>().getRandomImage,
+                onPressed: context.read<CoffeeCubit>().getRandomCoffee,
                 child: const Text('Another Coffee'),
               ),
               BlocBuilder<FavouriteCubit, FavouriteState>(
@@ -43,7 +43,8 @@ class CoffeeImage extends StatelessWidget {
                             .read<FavouriteCubit>()
                             .removeCoffee(favourites[index]),
                     icon: Icon(
-                        isFavourite ? Icons.favorite : Icons.favorite_border),
+                      isFavourite ? Icons.favorite : Icons.favorite_border,
+                    ),
                   );
                 },
               ),

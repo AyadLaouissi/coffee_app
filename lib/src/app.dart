@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:coffee/src/coffee/view/coffee_page.dart';
 import 'package:coffee/src/favourite/cubit/favourite_cubit.dart';
 import 'package:coffee/src/favourite/view/favourite_page.dart';
@@ -12,16 +14,18 @@ class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.coffeeRepository,
+    required this.directory,
   });
 
   final CoffeeRepository coffeeRepository;
+  final Directory directory;
 
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider<CoffeeRepository>(
       create: (context) => coffeeRepository,
       child: BlocProvider<FavouriteCubit>(
-        create: (context) => FavouriteCubit(coffeeRepository),
+        create: (context) => FavouriteCubit(coffeeRepository, directory),
         child: MaterialApp(
           restorationScopeId: 'app',
           localizationsDelegates: const [

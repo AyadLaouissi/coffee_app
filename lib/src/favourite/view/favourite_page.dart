@@ -15,24 +15,26 @@ class FavouritePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Favourites️️'),
       ),
-      body: Center(
-        child: BlocBuilder<FavouriteCubit, FavouriteState>(
-          builder: (context, state) {
-            if (state.coffees.isEmpty) {
-              return const FavouriteEmpty();
-            }
+      body: SafeArea(
+        child: Center(
+          child: BlocBuilder<FavouriteCubit, FavouriteState>(
+            builder: (context, state) {
+              if (state.coffees.isEmpty) {
+                return const FavouriteEmpty();
+              }
 
-            return PageView.builder(
-              itemCount: state.coffees.length,
-              itemBuilder: (context, index) {
-                final coffee = state.coffees[index];
+              return PageView.builder(
+                itemCount: state.coffees.length,
+                itemBuilder: (context, index) {
+                  final coffee = state.coffees[index];
 
-                return FavouriteItem(
-                  coffee: coffee,
-                );
-              },
-            );
-          },
+                  return FavouriteItem(
+                    coffee: coffee,
+                  );
+                },
+              );
+            },
+          ),
         ),
       ),
     );
