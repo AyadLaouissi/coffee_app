@@ -14,18 +14,21 @@ class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.coffeeRepository,
-    required this.directory,
+    required this.documentDirectory,
   });
 
   final CoffeeRepository coffeeRepository;
-  final Directory directory;
+  final Directory documentDirectory;
 
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider<CoffeeRepository>(
       create: (context) => coffeeRepository,
       child: BlocProvider<FavouriteCubit>(
-        create: (context) => FavouriteCubit(coffeeRepository, directory),
+        create: (context) => FavouriteCubit(
+          coffeeRepository,
+          documentDirectory,
+        ),
         child: MaterialApp(
           restorationScopeId: 'app',
           localizationsDelegates: const [
