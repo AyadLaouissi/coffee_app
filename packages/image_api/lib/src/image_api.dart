@@ -15,7 +15,7 @@ class ImageApi {
     final tempDir = await getTemporaryDirectory();
 
     // Download image
-    final uri = Uri.https('coffee.alexflipnote.dev', '/$imageName');
+    final uri = Uri.parse(url);
     final response = await _httpClient.get(uri);
 
     // Create a temp file
