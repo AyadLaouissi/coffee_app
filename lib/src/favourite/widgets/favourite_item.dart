@@ -22,10 +22,11 @@ class FavouriteItem extends StatelessWidget {
               coffee.image,
             ),
           ),
-          FloatingActionButton(
+          ElevatedButton.icon(
             onPressed: () =>
                 context.read<FavouriteCubit>().removeCoffee(coffee),
-            child: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
+            label: const Text('Delete'),
           ),
         ],
       ),

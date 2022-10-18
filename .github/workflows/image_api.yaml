@@ -1,4 +1,4 @@
-name: coffee_api
+name: image_api
 
 on: [pull_request, push]
 
@@ -6,7 +6,7 @@ jobs:
   build:
     defaults:
       run:
-        working-directory: packages/coffee_api
+        working-directory: packages/image_api
     runs-on: ubuntu-latest
 
     steps:
@@ -31,4 +31,4 @@ jobs:
       - name: Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
-          path: packages/coffee_api/coverage/lcov.info
+          path: packages/image_api/coverage/lcov.info
