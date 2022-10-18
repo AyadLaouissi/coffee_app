@@ -56,6 +56,12 @@ void main() {
       imageApi = ImageApi(httpClient: httpClient);
     });
 
+    group('constructor', () {
+      test('does not require an httpClient', () {
+        expect(ImageApi(), isNotNull);
+      });
+    });
+
     group('getTempImage', () {
       const url = 'https://coffee.alexflipnote.dev/coffee.png';
       File? image;
