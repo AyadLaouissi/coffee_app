@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
+/// Exception thrown when loading coffee image fails.
+class CoffeeRequestFailure implements Exception {}
+
 class ImageApi {
   ImageApi({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
@@ -17,6 +20,10 @@ class ImageApi {
     // Download image
     final uri = Uri.parse(url);
     final response = await _httpClient.get(uri);
+
+    if (response.statusCode != 200) {
+      throw CoffeeRequestFailure();
+    }
 
     // Create a temp file
     final file = File('${tempDir.path}/$imageName');

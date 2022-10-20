@@ -64,22 +64,17 @@ void main() {
 
     group('getTempImage', () {
       const url = 'https://coffee.alexflipnote.dev/coffee.png';
-      File? image;
+      late MockResponse response;
 
       setUp(() {
-        final response = MockResponse();
+        response = MockResponse();
         when(() => response.statusCode).thenReturn(200);
         when(() => response.bodyBytes).thenReturn(Uint8List.fromList([]));
         when(() => httpClient.get(any())).thenAnswer((_) async => response);
       });
 
-      tearDown(() {
-        // removes the image from the directory
-        image?.delete();
-      });
-
       test('calls http to get the image', () async {
-        image = await imageApi.getTempImage(url);
+        final image = await imageApi.getTempImage(url);
 
         verify(
           () => httpClient.get(
@@ -89,11 +84,25 @@ void main() {
             ),
           ),
         ).called(1);
+
+        // removes the created image from the directory
+        await image.delete();
       });
 
       test('returns image from url in the temporary directory', () async {
-        image = await imageApi.getTempImage(url);
-        expect(image!.path, temporaryImagePath);
+        final image = await imageApi.getTempImage(url);
+        expect(image.path, temporaryImagePath);
+
+        // removes the created image from the directory
+        await image.delete();
+      });
+
+      test('throws CoffeeRequestFailure when http fails', () async {
+        when(() => response.statusCode).thenReturn(404);
+        expect(
+          () async => imageApi.getTempImage(url),
+          throwsA(isA<CoffeeRequestFailure>()),
+        );
       });
     });
 
